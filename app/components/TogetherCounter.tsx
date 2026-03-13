@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 
-  const TimeUnit = ({ value, label }) => (
+  const TimeUnit = ({ value, label }: any) => (
     <div className="flex flex-col items-center px-3 md:px-6">
       <motion.span
         key={value}
@@ -21,8 +21,8 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
   );
 
 
-const TogetherCounter = ({ startDate }) => {
-  const [timeLeft, setTimeLeft] = useState({
+const TogetherCounter = ({ startDate }: any) => {
+  const [timeLeft, setTimeLeft] = useState<any>({
     years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0
   });
 
@@ -32,7 +32,7 @@ const TogetherCounter = ({ startDate }) => {
    
     const timer = setInterval(() => {
       const now = new Date();
-      const diff = now - start;
+      const diff = now as any - (start as any);
 
 
       const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
