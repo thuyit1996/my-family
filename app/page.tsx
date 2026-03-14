@@ -4,7 +4,7 @@
 import { useMotionTemplate, useScroll, useTransform } from "framer-motion";
 import MusicPlayer from "./components/MusicPlayer";
 const MemoryDust = dynamic(() => import("./components/MemoryDust"), { ssr: false });
-import { ChevronDown, Cloud, Flower2, Leaf, Sparkles, Heart , Star, Camera, Globe, MapPin, Users} from "lucide-react";
+import { ChevronDown, Cloud, Flower2, Leaf, Sparkles, Heart, Star, Camera, Globe, MapPin, Users } from "lucide-react";
 import DecorativeElement from "./components/DecorativeElement";
 const TimelineItem = dynamic(() => import("./components/TimeLineItem"), { ssr: false });
 import TogetherCounter from "./components/TogetherCounter";
@@ -124,6 +124,7 @@ const familyData = [
     desc: "Cùng nhau viết tiếp những chương mới, vẽ thêm những màu sắc hạnh phúc cho gia đình.",
   },
 ];
+{/* <div style="position: relative; width: 100%; height: 0; padding-top: 150.0000%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"    src="https://www.canva.com/design/DAHD5W7pC2g/4NynOah-thoWCCkZ7ASY9Q/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">  </iframe></div><a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHD5W7pC2g&#x2F;4NynOah-thoWCCkZ7ASY9Q&#x2F;view?utm_content=DAHD5W7pC2g&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Beige Aesthetic Lovely Family Photo College Portrait</a> của Thủy Vũ Văn */ }
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const headerCanvaUrl =
@@ -162,17 +163,23 @@ export default function Home() {
       <MemoryDust color={dustColor} />
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
+          <iframe
+            src={`${headerCanvaUrl}`}
+            className="lg:block absolute top-1/2 left-1/2 w-[115vw] h-[115vh] -translate-x-1/2 -translate-y-1/2 border-none pointer-events-none brightness-[0.7]"
+            allow="autoplay; fullscreen; clipboard-write"
+            loading="lazy"
+          />
+
           {/* <iframe
-            src={`${headerCanvaUrl}&autoplay=1&controls=0&mute=1`}
-            className="absolute top-1/2 left-1/2 w-[115vw] h-[115vh] -translate-x-1/2 -translate-y-1/2 border-none pointer-events-none object-cover brightness-[0.7]"
+            src="https://www.canva.com/design/DAHD5W7pC2g/4NynOah-thoWCCkZ7ASY9Q/view?embed&autoplay=1&loop=1&mute=1"
+            className="lg:hidden absolute inset-0 w-[115vw] h-[115vh] border-none brightness-[0.7]"
             allow="autoplay; fullscreen"
           /> */}
-          <iframe
-  src={`${headerCanvaUrl}`}
-  className="absolute top-1/2 left-1/2 w-[115vw] h-[115vh] -translate-x-1/2 -translate-y-1/2 border-none pointer-events-none brightness-[0.7]"
-  allow="autoplay; fullscreen; clipboard-write"
-  loading="lazy"
-/>
+           <iframe
+      src="https://www.canva.com/design/DAHD5W7pC2g/4NynOah-thoWCCkZ7ASY9Q/view?embed&autoplay=1&loop=1&mute=1"
+      className="lg:hidden absolute top-1/2 left-1/2 w-[120vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 border-none pointer-events-none brightness-[0.7]"
+      allow="autoplay; fullscreen"
+    />
           <div className="absolute inset-0 bg-linear-to-b from-stone-950/70 via-transparent to-transparent" />
         </div>
         <div className="relative z-10 text-center px-6">
