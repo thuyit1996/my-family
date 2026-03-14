@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import FloatingPhoto from "./FloatingPhoto";
 import { AnimatePresence, motion } from "framer-motion";
 import { Camera, X } from "lucide-react";
+import dynamic from "next/dynamic";
+const TimeLineDetail = dynamic(() => import("./TimeLineDetail"), { ssr: false });
 const TimelineItem = ({ item, index }: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const isEven = index % 2 === 0;
@@ -84,33 +86,7 @@ const TimelineItem = ({ item, index }: any) => {
 
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="absolute inset-0 bg-stone-950/80 backdrop-blur-xl"
-            />
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="relative w-full h-full max-w-6xl bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border-[10px] border-white"
-            >
-              <button
-                onClick={() => setIsOpen(false)}
-                className="absolute top-4 right-4 z-10 bg-white/80 p-3 rounded-full shadow-lg"
-              >
-                <X size={20} />
-              </button>
-              <iframe
-                src={item.canvaUrl}
-                className="w-full h-full border-none"
-                allowFullScreen
-              />
-            </motion.div>
-          </div>
+          <TimeLineDetail isOpen={isOpen} setIsOpen={setIsOpen} canvaUrl={item.canvaUrl} />
         )}
       </AnimatePresence>
     </motion.div>

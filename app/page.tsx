@@ -127,7 +127,7 @@ const familyData = [
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const headerCanvaUrl =
-    "https://www.canva.com/design/DAHDubzkotc/_jjjTx8eTJQQImsE-Fkq_Q/view?embed";
+    "https://www.canva.com/design/DAHD4t6zxDM/W2IYqYSzQtE_0PBbUrpujQ/view?embed&autoplay=1&loop=1&muted=1"
   const colorCenter = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
@@ -144,6 +144,7 @@ export default function Home() {
     [0, 0.5, 1],
     ["#f59e0b", "#fb7185", "#38bdf8"],
   );
+
   return (
     <motion.div
       style={{ background }}
@@ -161,11 +162,17 @@ export default function Home() {
       <MemoryDust color={dustColor} />
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <iframe
+          {/* <iframe
             src={`${headerCanvaUrl}&autoplay=1&controls=0&mute=1`}
             className="absolute top-1/2 left-1/2 w-[115vw] h-[115vh] -translate-x-1/2 -translate-y-1/2 border-none pointer-events-none object-cover brightness-[0.7]"
             allow="autoplay; fullscreen"
-          />
+          /> */}
+          <iframe
+  src={`${headerCanvaUrl}`}
+  className="absolute top-1/2 left-1/2 w-[115vw] h-[115vh] -translate-x-1/2 -translate-y-1/2 border-none pointer-events-none brightness-[0.7]"
+  allow="autoplay; fullscreen; clipboard-write"
+  loading="lazy"
+/>
           <div className="absolute inset-0 bg-linear-to-b from-stone-950/70 via-transparent to-transparent" />
         </div>
         <div className="relative z-10 text-center px-6">
