@@ -3,6 +3,7 @@ import FloatingPhoto from "./FloatingPhoto";
 import { AnimatePresence, motion } from "framer-motion";
 import { Camera, X } from "lucide-react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 const TimeLineDetail = dynamic(() => import("./TimeLineDetail"), { ssr: false });
 const TimelineItem = ({ item, index }: any) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,8 +30,8 @@ const TimelineItem = ({ item, index }: any) => {
     >
       <div className="hidden md:flex w-5/12 justify-center relative">
         <FloatingPhoto
-    
-          src={`https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg`}
+
+          src={item.decorator}
           className="relative !top-0 !left-auto !right-auto"
           rotate={isEven ? 8 : -8}
           speed={0.03}
@@ -41,7 +42,7 @@ const TimelineItem = ({ item, index }: any) => {
       <div
         className={`z-50 w-14 h-14 rounded-full border-4 border-white absolute left-2 md:left-1/2 md:-translate-x-1/2 ${item.dot} text-white flex items-center justify-center shadow-xl`}
       >
-          {/* <Icon size={20} fill="currentColor" /> */}
+        {/* <Icon size={20} fill="currentColor" /> */}
       </div>
 
 
@@ -51,9 +52,11 @@ const TimelineItem = ({ item, index }: any) => {
         className={`w-[85%] md:w-5/12 ml-14 md:ml-0 p-5 rounded-[2.5rem] ${item.cardBg} shadow-2xl cursor-pointer border border-white/60 group relative overflow-hidden transition-all`}
       >
         <div className="relative aspect-video mb-4 rounded-[1.5rem] overflow-hidden border-2 border-white shadow-md bg-stone-200">
-          <iframe
+          <Image
             src={item.canvaUrl}
-            className="w-full h-full border-none pointer-events-none scale-105"
+            alt={item.title}
+            className="w-full h-full border-none pointer-events-none scale-105 object-cover"
+            fill
           />
           {/* <img
   src={"https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"}

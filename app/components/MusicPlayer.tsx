@@ -7,8 +7,16 @@ import { Volume2, VolumeX, Music } from 'lucide-react';
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<any>(null);
-  const audioPath = "/audio/bg-audio.mp3";
 
+
+const audioList = [
+  "/audio/bg-audio.mp3",
+  "/audio/bg-audio-2.mp3",
+];
+
+const [audioPath] = useState(() => {
+  return audioList[Math.floor(Math.random() * audioList.length)];
+});
 
   useEffect(() => {
     if (audioRef.current) {

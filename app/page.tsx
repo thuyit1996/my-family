@@ -15,14 +15,15 @@ import BlogSection from "./components/BlogSection";
 const familyData = [
   {
     id: 1,
-    title: "Lần Đầu Gặp Gỡ",
-    date: "THÁNG 6, 2014",
+    title: "Ngày mới quen nhau",
+    date: "THÁNG 2, 2020",
     cardBg: "bg-linear-to-br from-rose-100 to-rose-300",
     accent: "text-rose-700",
     dot: "bg-rose-500",
     icon: Heart,
-    canvaUrl: "https://www.canva.com/design/DAHDubzkotc/_jjjTx8eTJQQImsE-Fkq_Q/view?embed",
-    desc: "Buổi hẹn đầu tiên tại quán cà phê nhỏ, nơi những rung động đầu đời bắt đầu chớm nở.",
+    canvaUrl: "/images/2.jpeg",
+    desc: "Quen nhau tại công ty, nơi những rung động đầu đời bắt đầu chớm nở.",
+    decorator: '/images/1.jpeg'
   },
   {
     id: 2,
@@ -215,7 +216,7 @@ export default function Home() {
             &quot;Chúng ta đã bên nhau được...&quot;
           </span>
         </div>
-        <TogetherCounter startDate="1995-06-15" />{" "}
+        <TogetherCounter startDate="2020-04-27" />{" "}
       </section>
       {/* 2. TIMELINE SECTION */}
       <section className="max-w-6xl mx-auto px-6 relative py-40">
@@ -255,7 +256,7 @@ export default function Home() {
 
         <div className="text-center mb-52 relative z-40">
           <h2 className="text-5xl md:text-7xl font-black text-stone-800 tracking-tight italic">
-            Memory Garden
+            Our Journey Together
           </h2>
           <div className="w-16 h-1.5 bg-stone-900 mx-auto mt-6 rounded-full shadow-lg"></div>
         </div>
